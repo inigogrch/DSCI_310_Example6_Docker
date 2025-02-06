@@ -1,9 +1,20 @@
 services:
   analysis-env:
-    image: inigogrch/mycontainer
+    image: rocker/rstudio:4.4.2
     ports:
       - "8787:8787"
     volumes:
       - .:/home/rstudio/work
     environment:
-      PASSWORD: "password"
+      DISABLE_AUTH: true
+      # PASSWORD: "password"
+
+  analysis-env-2:
+    image: inigogrch/mycontainer # or rocker/rstudio:4.4.2
+    ports:
+      - "7777:8787"
+    volumes:
+      - .:/home/rstudio/work
+    environment:
+      DISABLE_AUTH: true
+      # PASSWORD: "password"

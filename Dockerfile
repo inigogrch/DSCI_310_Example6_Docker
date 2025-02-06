@@ -1,8 +1,12 @@
-FROM rocker/tidyverse:4.4.2
+FROM rocker/rstudio:4.4.2
 
-RUN echo "Hello"
-RUN pwd
+RUN Rscript -e "install.packages('renv', repos = c(CRAN = 'https://cloud.r-project.org'))"
+RUN Rscript -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))"
 
-RUN apt-get install -y git
+# FROM rocker/tidyverse:4.4.2
 
-COPY README.md /home/rstudio/README.md
+# RUN echo "Hello"
+# RUN pwd
+# RUN apt-get install -y git
+
+# COPY README.md /home/rstudio/README.md
